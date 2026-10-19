@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#aa3024">
+  <meta name="description" content="当中华传统美德遇上现代生活：经营美德便利店，90秒完成暖心小事，收集六枚美德印章。">
+  <title>美德便利店｜把美德带进每一天</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="engine.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="美德便利店首页"><span class="brand-seal">德</span><span>美德便利店<small>VIRTUE CORNER STORE</small></span></a>
+    <nav aria-label="游戏设置"><button id="about" class="text-button">创作手记</button><button id="help" class="icon-button" aria-label="游戏玩法">?</button><button id="sound" class="icon-button" aria-label="开启音效" aria-pressed="false">♪</button></nav>
+  </header>
+  <main>
+    <div class="intro-line"><p>当中华传统美德遇上现代生活</p><span>一间小店 · 六种善意</span></div>
+    <section class="game-shell" aria-label="美德便利店游戏">
+      <div class="shop-sign"><div><span class="sign-mini">校园街角 · 今日营业</span><h1>美德便利店</h1><p>让每一件小事，都有一点温度。</p></div><div class="hanging-tag">善意<br>营业中</div></div>
+      <div class="stripe" aria-hidden="true"></div>
+      <div class="scorebar">
+        <div><span class="stat-label">善意值</span><strong id="score">0000</strong></div>
+        <div><span class="stat-label" id="time-label">营业倒计时</span><strong id="timer">90<span>s</span></strong></div>
+        <div><span class="stat-label">小店信誉</span><strong id="lives" class="hearts" aria-label="3点信誉">♥ ♥ ♥</strong></div>
+        <button id="pause" class="pause-button" disabled aria-label="暂停游戏">Ⅱ <span>暂停</span></button>
+      </div>
+      <div class="game-main">
+        <div class="scene-strip" role="img" aria-label="温暖的校园街角小店"><span class="scene-label">把传统美德，放进今天的生活。</span></div>
+        <div class="counter-head"><h2 id="phase">今日，你来当店长。</h2><span id="combo">准备营业</span></div>
+        <div id="customers" class="customers" aria-label="等待服务的顾客"></div>
+        <div id="mobile-request" class="mobile-request" aria-live="polite"></div>
+        <div class="feedback" id="feedback" role="status" aria-live="polite">先选一位顾客，再点击下方合适的行动。</div>
+        <div class="action-heading"><h2>善意工具箱</h2><span>点顾客 → 选行动</span></div>
+        <div id="actions" class="actions" aria-label="选择行动"></div>
+      </div>
+      <div class="stamp-shelf"><div><strong>今日美德集</strong><span id="stamp-hint">集齐六章 · 解锁善意时刻</span></div><div id="stamps" class="stamps" aria-label="美德印章收集进度"></div></div>
+      <div id="welcome" class="welcome-layer">
+        <div class="welcome-card"><span class="ticket-kicker">欢迎，新任店长</span><h2>小小便利店，<br>大大的<span>人情味。</span></h2><p>在 90 秒里回应顾客的日常需求。<br>接住每一份善意，收集你的美德印章。</p>
+          <div class="quick-rules"><span>① 点击顾客</span><span>② 选择行动</span><span>③ 收集印章</span></div>
+          <button id="start" class="primary-button">开门营业 <span>→</span></button><button id="practice" class="practice-button">先练练手 · 不计时</button><small id="best-label">每一份善意，都值得认真回应。</small>
+        </div>
+      </div>
+      <div id="paused" class="pause-layer" hidden><div><span class="ticket-kicker">小店休息中</span><h2>歇一会儿，再传递善意。</h2><p>顾客耐心和营业时间都已暂停。</p><button id="resume" class="primary-button">继续营业 →</button><button id="back-home" class="practice-button">结束本局，回到店门口</button></div></div>
+    </section>
+    <footer class="page-footer"><span>善意无需很大，行动就有回响。</span><span>鼠标 / 触屏操作 <i>·</i> <button id="keyboard-help" class="text-button">键盘也能玩</button></span></footer>
+  </main>
+  <dialog id="info-dialog" class="info-dialog"><button class="dialog-close" aria-label="关闭说明">×</button><div id="info-content"></div></dialog>
+  <dialog id="result-dialog" class="result-dialog"><div class="receipt"><span class="ticket-kicker">美德便利店 · 营业小票</span><h2 id="result-title">今日善意已送达</h2><p id="result-subtitle"></p><div class="result-score"><span>本局善意值</span><strong id="result-score">0</strong></div><div class="receipt-stats"><div><b id="result-served">0</b><span>完成服务</span></div><div><b id="result-combo">0</b><span>最高连击</span></div><div><b id="result-stamps">0/6</b><span>美德印章</span></div></div><div id="result-seals" class="result-seals"></div><p id="result-lesson" class="result-lesson"></p><div class="result-buttons"><button id="restart" class="primary-button">再开一局 →</button><button id="result-home" class="practice-button">回到店门口</button></div><p class="receipt-note">美德不是遥远的道理，而是每一次具体的选择。</p></div></dialog>
+  <noscript><div class="noscript">这个小游戏需要启用浏览器的 JavaScript。</div></noscript>
+</body>
+</html>
